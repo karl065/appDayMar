@@ -1,22 +1,63 @@
-const {Productos} = require('../../DB.js');
+const {Productos, Usuarios, Categorias} = require('../../DB.js');
 
 const getProductos = async () => {
-  const productos = await Productos.findAll();
-  return productos;
+  try {
+    const productos = await Productos.findAll({
+      include: [
+        {
+          model: Categorias,
+          as: 'categorias',
+        },
+        {
+          model: Usuarios,
+        },
+      ],
+    });
+    return productos;
+  } catch (error) {
+    return error;
+  }
 };
 
 const getProductosID = async (id) => {
-  const producto = await Productos.findByPk(id);
-  return producto;
+  try {
+    const producto = await Productos.findByPk(id, {
+      include: [
+        {
+          model: Categorias,
+          as: 'categorias',
+        },
+        {
+          model: Usuarios,
+        },
+      ],
+    });
+    return producto;
+  } catch (error) {
+    return error;
+  }
 };
 
 const getProductosName = async (nombre) => {
-  const producto = await Productos.findAll({
-    where: {
-      nombre: nombre,
-    },
-  });
-  return producto;
+  try {
+    const producto = await Productos.findAll({
+      where: {
+        nombre: nombre,
+      },
+      include: [
+        {
+          model: Categorias,
+          as: 'categorias',
+        },
+        {
+          model: Usuarios,
+        },
+      ],
+    });
+    return producto;
+  } catch (error) {
+    return error;
+  }
 };
 
 module.exports = {getProductos, getProductosID, getProductosName};

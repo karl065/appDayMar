@@ -7,7 +7,7 @@ const {
 const getHandlerProductos = async (req, res) => {
   try {
     const {nombre} = req.query;
-    if (nombre.length > 0) {
+    if (nombre) {
       const producto = await getProductosName(nombre);
       if (producto.length === 0) {
         return res.status(404).send('El producto no existe en la DB');

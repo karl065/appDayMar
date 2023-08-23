@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     'Productos',
     {
-      id: {
+      idProducto: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -17,7 +17,11 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      precio: {
+      precioCompra: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      precioVenta: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
