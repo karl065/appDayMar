@@ -1,18 +1,57 @@
 const {
   getProductos,
-  getProductosID,
-  getProductosName,
+  getProductosFiltros,
 } = require('../../Controller/ControllersProductos/getControllerProductos');
 
 const getHandlerProductos = async (req, res) => {
   try {
-    const {nombre} = req.query;
-    if (nombre) {
-      const producto = await getProductosName(nombre);
-      if (producto.length === 0) {
-        return res.status(404).send('El producto no existe en la DB');
-      }
-      return res.status(200).json(producto);
+    const {
+      idProducto,
+      nombre,
+      minPrecioV,
+      maxPrecioV,
+      minPrecioC,
+      maxPrecioC,
+      minCant,
+      maxCant,
+      tipo,
+      status,
+      fechaCreado,
+      fechaActualizado,
+      idCategoria,
+    } = req.query;
+
+    if (
+      idProducto ||
+      nombre ||
+      minPrecioV ||
+      maxPrecioV ||
+      minPrecioC ||
+      maxPrecioC ||
+      minCant ||
+      maxCant ||
+      tipo ||
+      status ||
+      fechaCreado ||
+      fechaActualizado ||
+      idCategoria
+    ) {
+      const productos = await getProductosFiltros(
+        idProducto,
+        nombre,
+        minPrecioV,
+        maxPrecioV,
+        minPrecioC,
+        maxPrecioC,
+        minCant,
+        maxCant,
+        tipo,
+        status,
+        fechaCreado,
+        fechaActualizado,
+        idCategoria
+      );
+      return res.status(200).json(productos);
     }
     const productos = await getProductos();
     return res.status(200).json(productos);
@@ -21,14 +60,4 @@ const getHandlerProductos = async (req, res) => {
   }
 };
 
-const getHandlerProductosID = async (req, res) => {
-  const {id} = req.params;
-  try {
-    const producto = await getProductosID(id);
-    return res.status(200).json(producto);
-  } catch (error) {
-    return res.status(500).json({error: error.message});
-  }
-};
-
-module.exports = {getHandlerProductos, getHandlerProductosID};
+module.exports = {getHandlerProductos};

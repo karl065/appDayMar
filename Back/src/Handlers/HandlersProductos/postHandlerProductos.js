@@ -10,6 +10,8 @@ const postHandlerProductos = async (req, res) => {
     precioVenta,
     stock,
     imagen,
+    tipo,
+    status,
     idCategoria,
     usuarioID,
   } = req.body;
@@ -20,6 +22,8 @@ const postHandlerProductos = async (req, res) => {
     !precioVenta ||
     !stock ||
     !imagen ||
+    !tipo ||
+    !status ||
     !idCategoria
   ) {
     return res.status(401).send('No deben haber campos vacíos');
@@ -32,6 +36,8 @@ const postHandlerProductos = async (req, res) => {
       precioVenta,
       stock,
       imagen,
+      tipo,
+      status,
       idCategoria,
       usuarioID
     );

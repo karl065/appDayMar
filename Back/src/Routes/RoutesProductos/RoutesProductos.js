@@ -1,7 +1,6 @@
 const express = require('express');
 const {
   getHandlerProductos,
-  getHandlerProductosID,
 } = require('../../Handlers/HandlersProductos/getHandlerProductos');
 const {
   postHandlerProductos,
@@ -16,7 +15,6 @@ const router = express.Router();
 
 router.post('/', postHandlerProductos);
 router.get('/', getHandlerProductos);
-router.get('/:id', getHandlerProductosID);
 router.put('/:id', putHandlerProductos);
 router.delete('/:id', deleteHandlerProducto);
 

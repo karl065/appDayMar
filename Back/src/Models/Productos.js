@@ -33,6 +33,20 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      tipo: {
+        type: DataTypes.STRING,
+      },
+      status: {
+        type: DataTypes.ENUM('D', 'N'), // D = Disponible, N = No disponible.
+      },
+      fechaCreado: {
+        type: DataTypes.DATEONLY,
+        defaultValue: sequelize.fn('NOW'),
+      },
+      fechaActualizado: {
+        type: DataTypes.DATEONLY,
+        defaultValue: sequelize.fn('NOW'),
+      },
     },
     {
       timestamps: false,

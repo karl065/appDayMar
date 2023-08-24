@@ -1,12 +1,21 @@
-const {Productos} = require('../../DB.js');
+const {Productos, Usuarios, Categorias} = require('../../DB.js');
 
-const putProductos = async (updateData, id) => {
+const putProductos = async (updateData, idProducto) => {
   try {
     await Productos.update(updateData, {
-      where: {id},
+      where: {idProducto},
     });
-    const producto = await Productos.findByPk(id);
-    return producto;
+    return await Productos.findByPk(idProducto, {
+      include: [
+        {
+          model: Categorias,
+          as: 'categorias',
+        },
+        {
+          model: Usuarios,
+        },
+      ],
+    });
   } catch (error) {
     return error.message;
   }

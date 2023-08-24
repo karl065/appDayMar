@@ -7,6 +7,8 @@ const postProductos = async (
   precioVenta,
   stock,
   imagen,
+  tipo,
+  status,
   idCategoria,
   usuarioID
 ) => {
@@ -18,6 +20,8 @@ const postProductos = async (
       precioVenta,
       stock,
       imagen,
+      tipo,
+      status,
       idCategoria,
     });
     const usuario = await Usuarios.findByPk(usuarioID);
