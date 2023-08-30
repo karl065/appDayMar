@@ -1,4 +1,5 @@
 'use client';
+import Card from '@/componentes/Card/Card';
 import {getProductos} from '@/redux/Services/productos/getProductos';
 import {getUsuarios} from '@/redux/Services/usuarios/getUsuarios';
 import {useEffect} from 'react';
@@ -15,8 +16,10 @@ const HomePage = () => {
     getUsuarios(dispatch);
   }, []);
   return (
-    <div>
-      <h1>Hola Mundo Nextjs</h1>
+    <div className="flex justify-center m-6">
+      {productos.map((producto, index) => (
+        <Card key={index} producto={producto} />
+      ))}
     </div>
   );
 };

@@ -1,5 +1,3 @@
-import './SearchBar.css';
-
 const SearchBar = () => {
   return (
     <div className="flex justify-between items-center">
@@ -15,9 +13,9 @@ const SearchBar = () => {
       </div>
       <button>
         <img
-          src="https://res.cloudinary.com/dpjeltekx/image/upload/v1690157479/PF/dsbscy8syldhvnr9ppsx.png"
+          src="https://res.cloudinary.com/dpjeltekx/image/upload/v1693410322/appDayMar/app/search_p8qit4.png"
           alt="Lupa búsqueda"
-          className="w-8 h-8"
+          className="w-8 h-8 border-white"
         />
       </button>
     </div>
