@@ -9,8 +9,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const usuarios = useSelector((state) => state.valores.usuarios);
   const productos = useSelector((state) => state.valores.productos);
-  console.log(usuarios);
-  console.log(productos);
+
   useEffect(() => {
     getProductos(dispatch);
     getUsuarios(dispatch);

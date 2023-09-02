@@ -1,4 +1,5 @@
 const {Usuarios} = require('../../DB.js');
+const bcryptjs = require('bcryptjs');
 
 const postUsuarios = async (
   nombre,
@@ -9,6 +10,7 @@ const postUsuarios = async (
   rol
 ) => {
   try {
+    password = await bcryptjs.hash(password, 10);
     const usuario = await Usuarios.create({
       nombre,
       direccion,

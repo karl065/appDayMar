@@ -1,11 +1,11 @@
 const {Usuarios, Productos} = require('../../DB.js');
 
-const putUsuarios = async (updateData, id) => {
+const putUsuarios = async (updateData, idUser) => {
   try {
     await Usuarios.update(updateData, {
-      where: {id},
+      where: {idUser},
     });
-    const usuario = await Usuarios.findByPk(id, {
+    const usuario = await Usuarios.findByPk(idUser, {
       include: [Productos],
     });
     return usuario;

@@ -1,7 +1,12 @@
+'use client';
 import Navbar from '@/componentes/Navbar/Navbar';
 import './globals.css';
 import Providers from '@/redux/provider';
-import Head from 'next/head';
+import {useEffect} from 'react';
+import {getUsuarios} from '@/redux/Services/usuarios/getUsuarios';
+import store from '@/redux/store';
+import {getProductos} from '@/redux/Services/productos/getProductos';
+import {userLogin} from '@/redux/Slices/slice';
 
 export const metadata = {
   title: 'DayMar',
@@ -9,6 +14,10 @@ export const metadata = {
 };
 
 export default function RootLayout({children}) {
+  useEffect(() => {
+    getUsuarios(store.dispatch);
+    getProductos(store.dispatch);
+  }, []);
   return (
     <html lang="en">
       <head>
