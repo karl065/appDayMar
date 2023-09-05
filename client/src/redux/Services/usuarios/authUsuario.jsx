@@ -9,6 +9,7 @@ const authUsuario = async (token, dispatch) => {
         'x-auth-token': token,
       },
     });
+    data.token = token;
     dispatch(userLogin(data));
   } catch (error) {
     console.log(error);

@@ -13,7 +13,6 @@ const Register = () => {
   const router = useRouter();
   const path = usePathname();
   const usuarios = useSelector((state) => state.valores.usuarios);
-  console.log('esto es register ', usuarios);
   const validationSchema = Yup.object().shape({
     nombre: Yup.string().required('Nombre requerido'),
     direccion: Yup.string().required('Direccion requerida'),

@@ -7,6 +7,7 @@ import {getUsuarios} from '@/redux/Services/usuarios/getUsuarios';
 import store from '@/redux/store';
 import {getProductos} from '@/redux/Services/productos/getProductos';
 import {userLogin} from '@/redux/Slices/slice';
+import getCategorias from '@/redux/Services/categorias/getCategorias';
 
 export const metadata = {
   title: 'DayMar',
@@ -17,6 +18,7 @@ export default function RootLayout({children}) {
   useEffect(() => {
     getUsuarios(store.dispatch);
     getProductos(store.dispatch);
+    getCategorias(store.dispatch);
   }, []);
   return (
     <html lang="en">
@@ -31,6 +33,10 @@ export default function RootLayout({children}) {
         <body>
           <Navbar />
           {children}
+          <script
+            src="https://widget.cloudinary.com/v2.0/global/all.js"
+            type="text/javascript"
+          ></script>
         </body>
       </Providers>
     </html>

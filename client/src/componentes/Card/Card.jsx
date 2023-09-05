@@ -1,6 +1,6 @@
 const Card = ({producto}) => {
   const imagenFondo = {
-    backgroundImage: `url(${producto.imagen})`,
+    backgroundImage: `url(${producto.imagen[0].split(',')[0]})`,
     backgroundSize: '200px 200px',
     backgroundPosition: 'center',
   };

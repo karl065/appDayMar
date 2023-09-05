@@ -7,18 +7,19 @@ import {useEffect, useState} from 'react';
 import authUsuario from '@/redux/Services/usuarios/authUsuario';
 
 const Navbar = () => {
-  const [token, setToken] = useState('');
   const usuarioLogin = useSelector((state) => state.valores.login);
+
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     dispatch(userLogin([]));
   };
+
   useEffect(() => {
+    const token = localStorage.getItem('token');
     if (token) authUsuario(token, dispatch);
-    setToken(localStorage.getItem('token'));
-  }, [token, dispatch]);
+  }, []);
   return (
     <nav className="bg-zinc-900 opacity-75 flex justify-between px-16 py-4 items-center">
       <Link href="/">
@@ -34,7 +35,7 @@ const Navbar = () => {
         <li>
           <Link href="/">inicio</Link>
         </li>
-        {token ? (
+        {usuarioLogin.token ? (
           <>
             <li>
               <Link href="/" onClick={handleLogout}>

@@ -11,7 +11,7 @@ const register = async (nombre, direccion, celular, email, password, rol) => {
       password,
       rol,
     });
-    console.log(data);
+    return data;
   } catch (error) {
     console.log(error.message);
   }

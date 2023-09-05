@@ -20,10 +20,25 @@ export const valoresSlice = createSlice({
     userLogin: (state, action) => {
       state.login = action.payload;
     },
+    cargarCategorias: (state, action) => {
+      state.categorias = action.payload;
+    },
+    nuevaCategoria: (state, action) => {
+      state.categorias = [...state.categorias, action.payload];
+    },
+    nuevoProducto: (state, action) => {
+      state.productos = [...state.productos, action.payload];
+    },
   },
 });
 
-export const {cargarUsuarios, cargarProductos, userLogin} =
-  valoresSlice.actions;
+export const {
+  cargarUsuarios,
+  cargarProductos,
+  userLogin,
+  cargarCategorias,
+  nuevaCategoria,
+  nuevoProducto,
+} = valoresSlice.actions;
 
 export default valoresSlice.reducer;
