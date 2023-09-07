@@ -29,6 +29,20 @@ export const valoresSlice = createSlice({
     nuevoProducto: (state, action) => {
       state.productos = [...state.productos, action.payload];
     },
+    actualizarProducto: (state, action) => {
+      const updatedProduct = action.payload; // El producto actualizado que llega en el payload
+      const updatedProducts = state.productos.map((producto) => {
+        if (producto.idProducto === updatedProduct.idProducto) {
+          // Si se encuentra el producto en el estado, reemplazarlo con los nuevos datos
+          return {
+            ...producto,
+            ...updatedProduct,
+          };
+        }
+        return producto; // Mantener los otros productos sin cambios
+      });
+      state.productos = updatedProducts;
+    },
   },
 });
 
@@ -39,6 +53,7 @@ export const {
   cargarCategorias,
   nuevaCategoria,
   nuevoProducto,
+  actualizarProducto,
 } = valoresSlice.actions;
 
 export default valoresSlice.reducer;

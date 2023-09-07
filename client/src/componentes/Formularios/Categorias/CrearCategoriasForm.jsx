@@ -47,8 +47,8 @@ const CrearCategoriasForm = () => {
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-black opacity-75 p-8 rounded shadow-lg w-full max-w-md">
+    <div className="justify-center inline-block">
+      <div className="flex bg-black opacity-75 p-8 rounded shadow-lg ">
         <form className="space-y-4" onSubmit={formik.handleSubmit}>
           <div className="space-y-2">
             <input

@@ -7,7 +7,7 @@ import CrearProductos from '@/componentes/Formularios/Productos/CrearProductos';
 const page = () => {
   return (
     <AdminPage>
-      <div className="h-screen">
+      <div className="mx-auto">
         <CrearProductos />
       </div>
     </AdminPage>

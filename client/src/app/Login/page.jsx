@@ -38,6 +38,7 @@ const page = () => {
       };
       dispatch(userLogin(usuario));
       if (rol === 'Cliente') router.push('/');
+      if (rol === 'SuperUser' || rol === 'Admin') router.push('/Admin');
     },
   });
   return (

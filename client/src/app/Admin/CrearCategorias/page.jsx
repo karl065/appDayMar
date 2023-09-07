@@ -5,7 +5,7 @@ import AdminPage from '../page';
 const page = () => {
   return (
     <AdminPage>
-      <div>
+      <div className="mx-auto">
         <CrearCategoriasForm />
       </div>
     </AdminPage>

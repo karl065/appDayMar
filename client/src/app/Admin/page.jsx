@@ -4,13 +4,10 @@ import {usePathname} from 'next/navigation';
 
 const AdminPage = ({children}) => {
   const path = usePathname();
-  const isCrearCategoriasRoute = path === '/Admin/CrearCategorias';
   return (
     <div className="flex justify-between">
       <Sidebar />
-      <div className="flex items-center justify-center flex-grow">
-        {path && children}
-      </div>
+      <div className="flex flex-grow m-2 relative">{path && children}</div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const HomePage = () => {
     getUsuarios(dispatch);
   }, []);
   return (
-    <div className="flex justify-center m-6">
+    <div className="flex justify-center">
       {productos.map((producto, index) => (
         <Card key={index} producto={producto} />
       ))}
