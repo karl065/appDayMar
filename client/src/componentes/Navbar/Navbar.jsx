@@ -37,6 +37,14 @@ const Navbar = () => {
         </li>
         {usuarioLogin.token ? (
           <>
+            {usuarioLogin.rol === 'SuperUser' ||
+            usuarioLogin.rol === 'Admin' ? (
+              <>
+                <li>
+                  <Link href="/Admin">Panel Administrativo</Link>
+                </li>
+              </>
+            ) : null}
             <li>
               <Link href="/" onClick={handleLogout}>
                 salir

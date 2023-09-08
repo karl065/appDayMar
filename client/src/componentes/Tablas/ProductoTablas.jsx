@@ -1,10 +1,11 @@
 import {useDispatch, useSelector} from 'react-redux';
-import {useMemo} from 'react';
+import {useMemo, useState} from 'react';
 import {usePagination, useTable} from 'react-table';
 import putProductos from '@/redux/Services/productos/putProductos';
 
 const ProductoTablas = () => {
   const dispatch = useDispatch();
+
   const data = useSelector((state) => state.valores.productos);
   const processedData = useMemo(() => {
     return data.map((producto) => ({
@@ -56,23 +57,87 @@ const ProductoTablas = () => {
       {
         Header: 'Estado',
         accessor: 'nombreStatus',
-        Cell: ({cell: {value}, row: {original}}) => (
-          <select
-            className=" bg-black opacity-75 rounded-sm"
-            value={value === 'Disponible' ? 'D' : 'N'}
-            onChange={(e) => {
-              putProductos(
-                {status: e.target.value},
-                original.idProducto,
-                dispatch
-              );
-            }}
-          >
-            <option value="D">Disponible</option>
-            <option value="N">No disponible</option>
-          </select>
-        ),
+        Cell: ({cell: {value}, row: {original}}) => {
+          const [selectStatus, setSelectStatus] = useState(false);
+          const toggleStatus = () => {
+            setSelectStatus(!selectStatus);
+          };
+
+          const handleStatus = (e) => {
+            e.preventDefault();
+            const newStatus = e.target.id === 'Disponible' ? 'D' : 'N';
+
+            // Verificar si el estado seleccionado es diferente del estado actual antes de hacer cambios
+            if (newStatus !== original.status) {
+              putProductos({status: newStatus}, original.idProducto, dispatch);
+            }
+
+            // Alternar el estado del botón de selección
+            setSelectStatus(!selectStatus);
+          };
+
+          return (
+            <div>
+              <button
+                id="dropdownDelayButton"
+                data-dropdown-toggle="dropdownDelay"
+                data-dropdown-delay="500"
+                data-dropdown-trigger="hover"
+                className={`${
+                  value == 'No disponible'
+                    ? 'text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800'
+                    : 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                }`}
+                type="button"
+                onClick={toggleStatus}
+              >
+                {value}{' '}
+                <svg
+                  className={`w-2.5 h-2.5 ml-2.5 transition-transform ${
+                    selectStatus === true ? 'rotate-180' : ''
+                  }`}
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+              {selectStatus && (
+                <div
+                  id="dropdownDelay"
+                  className={`z-60 ${
+                    selectStatus ? 'absolute' : 'hidden'
+                  } bg-black divide-y divide-black rounded-lg shadow w-44 dark:bg-black mt-2 border-white border-2 opacity-75 dark:opacity-100`}
+                >
+                  <ul
+                    className="space-x-2 py-2 text-sm text-white dark:text-white "
+                    aria-labelledby="dropdownDelayButton"
+                  >
+                    <button
+                      className="z-50 "
+                      id={
+                        value === 'Disponible' ? 'No disponible' : 'Disponible'
+                      }
+                      onClick={handleStatus}
+                    >
+                      {value === 'Disponible' ? 'No Disponible' : 'Disponible'}
+                    </button>
+                  </ul>
+                </div>
+              )}
+            </div>
+          );
+        },
       },
+
       {
         Header: '',
         accessor: 'edit',

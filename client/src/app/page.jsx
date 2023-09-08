@@ -1,5 +1,6 @@
 'use client';
 import Card from '@/componentes/Card/Card';
+import FiltroProductos from '@/componentes/Filtros/FiltroProductos';
 import {getProductos} from '@/redux/Services/productos/getProductos';
 import {getUsuarios} from '@/redux/Services/usuarios/getUsuarios';
 import {useEffect} from 'react';
@@ -15,10 +16,13 @@ const HomePage = () => {
     getUsuarios(dispatch);
   }, []);
   return (
-    <div className="flex justify-center">
-      {productos.map((producto, index) => (
-        <Card key={index} producto={producto} />
-      ))}
+    <div className="flex flex-col justify-center p-2">
+      <FiltroProductos />
+      <div className="flex justify-center">
+        {productos.map((producto, index) => (
+          <Card key={index} producto={producto} />
+        ))}
+      </div>
     </div>
   );
 };
