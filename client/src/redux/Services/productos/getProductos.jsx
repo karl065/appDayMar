@@ -56,6 +56,7 @@ const getFiltroProductos = async (dataFiltro, dispatch) => {
       .map((key) => `${key}=${params[key]}`)
       .join('&');
     const {data} = await axios.get(`${server.baseUrl}productos?${queryString}`);
+    console.log(data);
     dispatch(cargarProductos(data));
   } catch (error) {}
 };

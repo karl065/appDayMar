@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useMemo, useState} from 'react';
 import {usePagination, useTable} from 'react-table';
 import putProductos from '@/redux/Services/productos/putProductos';
+import Link from 'next/link';
 
 const ProductoTablas = () => {
   const dispatch = useDispatch();
@@ -85,8 +86,8 @@ const ProductoTablas = () => {
                 data-dropdown-trigger="hover"
                 className={`${
                   value == 'No disponible'
-                    ? 'text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800'
-                    : 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                    ? 'text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800'
+                    : 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
                 }`}
                 type="button"
                 onClick={toggleStatus}
@@ -115,10 +116,10 @@ const ProductoTablas = () => {
                   id="dropdownDelay"
                   className={`z-60 ${
                     selectStatus ? 'absolute' : 'hidden'
-                  } bg-black divide-y divide-black rounded-lg shadow w-44 dark:bg-black mt-2 border-white border-2 opacity-75 dark:opacity-100`}
+                  } bg-black divide-y divide-black rounded-lg shadow p-2 dark:bg-black mt-2 border-white border-2 opacity-75 dark:opacity-100`}
                 >
                   <ul
-                    className="space-x-2 py-2 text-sm text-white dark:text-white "
+                    className="text-sm text-white dark:text-white "
                     aria-labelledby="dropdownDelayButton"
                   >
                     <button
@@ -141,7 +142,11 @@ const ProductoTablas = () => {
       {
         Header: '',
         accessor: 'edit',
-        Cell: ({cell: {value}, row: {original}}) => <button>Editar</button>,
+        Cell: ({cell: {value}, row: {original}}) => (
+          <Link href={`/Admin/ActualizarProducto?id=${original.idProducto}`}>
+            ✏
+          </Link>
+        ),
       },
     ],
     []

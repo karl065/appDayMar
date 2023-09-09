@@ -2,10 +2,13 @@ import {
   getFiltroProductos,
   getProductos,
 } from '@/redux/Services/productos/getProductos';
+import {usePathname} from 'next/navigation';
 import {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 const FiltroProductos = () => {
+  const path = usePathname();
+
   const dispatch = useDispatch();
   const categorias = useSelector((state) => state.valores.categorias);
   const [filtros, setFiltros] = useState([]);
@@ -473,34 +476,37 @@ const FiltroProductos = () => {
                   />
                 </div>
               )}
-              <button
-                id="dropdownDelayButtonPrecioCompra"
-                data-dropdown-toggle="dropdownDelayPrecioCompra"
-                data-dropdown-delay="500"
-                data-dropdown-trigger="hover"
-                className="flex mx-2"
-                type="button"
-                onClick={togglePrecioCompra}
-              >
-                Precio de compra{' '}
-                <svg
-                  className={`w-2.5 h-2.5 ml-2.5 transition-transform ${
-                    filtroPrecioCompra ? 'rotate-180' : ''
-                  }`}
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
+
+              {path !== '/' && (
+                <button
+                  id="dropdownDelayButtonPrecioCompra"
+                  data-dropdown-toggle="dropdownDelayPrecioCompra"
+                  data-dropdown-delay="500"
+                  data-dropdown-trigger="hover"
+                  className="flex mx-2"
+                  type="button"
+                  onClick={togglePrecioCompra}
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
-              </button>
+                  Precio de compra{' '}
+                  <svg
+                    className={`w-2.5 h-2.5 ml-2.5 transition-transform ${
+                      filtroPrecioCompra ? 'rotate-180' : ''
+                    }`}
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+              )}
               {filtroPrecioCompra && (
                 <div
                   ref={dropdownPrecioCompraRef}
@@ -531,7 +537,7 @@ const FiltroProductos = () => {
                 type="button"
                 onClick={togglePrecioVenta}
               >
-                Precio de venta{' '}
+                {path === '/' ? 'Precio' : 'Precio de venta'}{' '}
                 <svg
                   className={`w-2.5 h-2.5 ml-2.5 transition-transform ${
                     filtroPrecioVenta ? 'rotate-180' : ''
@@ -571,34 +577,36 @@ const FiltroProductos = () => {
                   />
                 </div>
               )}
-              <button
-                id="dropdownDelayButtonStatus"
-                data-dropdown-toggle="dropdownDelayStatus"
-                data-dropdown-delay="500"
-                data-dropdown-trigger="hover"
-                className="flex mx-2"
-                type="button"
-                onClick={toggleStatus}
-              >
-                Estado{' '}
-                <svg
-                  className={`w-2.5 h-2.5 ml-2.5 transition-transform ${
-                    filtroStatus === true ? 'rotate-180' : ''
-                  }`}
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
+              {path !== '/' && (
+                <button
+                  id="dropdownDelayButtonStatus"
+                  data-dropdown-toggle="dropdownDelayStatus"
+                  data-dropdown-delay="500"
+                  data-dropdown-trigger="hover"
+                  className="flex mx-2"
+                  type="button"
+                  onClick={toggleStatus}
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
-              </button>
+                  Estado{' '}
+                  <svg
+                    className={`w-2.5 h-2.5 ml-2.5 transition-transform ${
+                      filtroStatus === true ? 'rotate-180' : ''
+                    }`}
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+              )}
               {filtroStatus && (
                 <div
                   ref={dropdownStatusRef}

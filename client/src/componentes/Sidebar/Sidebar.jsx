@@ -15,6 +15,17 @@ const Sidebar = () => {
         Usuarios
       </Link>
       <Link
+        className={`bg-blue-500 m-2 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 ${
+          path === '/Admin/CrearUsuarios'
+            ? 'pointer-events-none opacity-50'
+            : ''
+        }`}
+        href="/Admin/CrearUsuarios"
+      >
+        Crear Usuarios
+      </Link>
+      <hr />
+      <Link
         className={`bg-blue-500 m-2 text-white py-2 px-4 rounded hover-bg-blue-600 focus:outline-none focus:bg-blue-600 ${
           path === '/Admin/CrearCategorias'
             ? 'pointer-events-none opacity-50'
@@ -41,6 +52,16 @@ const Sidebar = () => {
         href="/Admin/Productos"
       >
         Productos
+      </Link>
+      <Link
+        className={`bg-blue-500 m-2 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 ${
+          path === '/Admin/ActualizarProducto'
+            ? 'pointer-events-none opacity-50'
+            : ''
+        }`}
+        href="/Admin/ActualizarProducto"
+      >
+        Actualizar productos
       </Link>
     </div>
   );
