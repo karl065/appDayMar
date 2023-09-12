@@ -15,6 +15,23 @@ const CrearProductos = () => {
   const categorias = useSelector((state) => state.valores.categorias);
   const productos = useSelector((state) => state.valores.productos);
 
+  const [categoria, setCategoria] = useState('');
+  const [nombreCategoria, setNombreCategoria] = useState('');
+  const [selectCategoria, setSelectCategoria] = useState(false);
+  const [categoriaError, setCategoriaError] = useState(false);
+  const toggleCategoria = () => {
+    setSelectCategoria(!selectCategoria);
+    if (!categoria) setCategoriaError(true);
+  };
+  const handleCategoria = (e) => {
+    e.preventDefault();
+    formik.setFieldValue('idCategoria', e.target.value);
+    setCategoria(e.target.value);
+    setNombreCategoria(e.target.id);
+    setCategoriaError(false);
+    setSelectCategoria(!selectCategoria);
+  };
+
   const validationSchema = Yup.object().shape({
     nombre: Yup.string()
       .required('Nombre del producto requerido')
@@ -115,7 +132,7 @@ const CrearProductos = () => {
                   value={formik.values.tipo}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  placeholder="tipo"
+                  placeholder="Tipo"
                   className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
                 />
                 {formik.touched.tipo && formik.errors.tipo ? (
@@ -185,7 +202,7 @@ const CrearProductos = () => {
                   value={formik.values.stock}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  placeholder="stock"
+                  placeholder="Stock"
                   className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
                 />
                 {formik.touched.stock && formik.errors.stock ? (
@@ -197,27 +214,64 @@ const CrearProductos = () => {
             </div>
             <div className="space-y-3 mx-4">
               <div className="space-y-2">
-                <select
-                  name="idCategoria"
-                  id="idCategoria"
-                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-                  value={formik.values.idCategoria}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
+                <button
+                  id="dropdownCategoriaButton"
+                  data-dropdown-toggle="dropdownCategoria"
+                  data-dropdown-delay="500"
+                  data-dropdown-trigger="hover"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  type="button"
+                  onClick={toggleCategoria}
                 >
-                  <option value={null}>Seleccione una categoria</option>
-                  {categorias.map((cat, index) => (
-                    <option value={cat.idCategoria} key={index}>
-                      {cat.nombreCategoria}
-                    </option>
-                  ))}
-                </select>
-
-                {formik.touched.idCategoria && formik.errors.idCategoria ? (
+                  {categoria ? nombreCategoria : 'Seleccione una Categoría'}{' '}
+                  <svg
+                    className={`w-2.5 h-2.5 ml-2.5 transition-transform ${
+                      selectCategoria === true ? 'rotate-180' : ''
+                    }`}
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+                {selectCategoria && (
+                  <div
+                    id="dropdownCategoria"
+                    className={`z-60 ${
+                      selectCategoria ? 'absolute' : 'hidden'
+                    } bg-black divide-y divide-black rounded-lg shadow p-2 dark:bg-black border-white border-2 opacity-75 dark:opacity-100`}
+                  >
+                    <ul
+                      className="text-sm text-white dark:text-white flex flex-col"
+                      aria-labelledby="dropdownCategoriaButton"
+                    >
+                      {categorias.map((cat, index) => (
+                        <button
+                          key={index}
+                          className="z-50 "
+                          id={cat.nombreCategoria}
+                          onClick={handleCategoria}
+                          value={cat.idCategoria}
+                        >
+                          {cat.nombreCategoria}
+                        </button>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {categoriaError && (
                   <div className="text-red-900 font-bold">
                     {formik.errors.idCategoria}
                   </div>
-                ) : null}
+                )}
               </div>
               <div className="space-y-2">
                 <CloudinaryWidget imagen={imagen} setImagen={setImagen} />
