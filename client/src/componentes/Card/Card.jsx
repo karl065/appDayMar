@@ -14,7 +14,7 @@ const Card = ({producto}) => {
   };
   return (
     <div
-      className="card m-6 w-[200px] h-[200px] bg-black shadow-2xl shadow-black rounded-md flex flex-col justify-center items-center space-y-4 p-2 text-black font-bold"
+      className="card w-[200px] h-[200px] bg-black shadow-2xl shadow-black rounded-md flex flex-col justify-center items-center space-y-4 p-2 text-black font-bold"
       style={estiloCombinado}
     >
       {/* <img src={producto.imagen} alt={producto.nombre} className="w-30 h-20" /> */}

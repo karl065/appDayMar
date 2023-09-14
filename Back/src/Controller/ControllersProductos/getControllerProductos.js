@@ -53,7 +53,7 @@ const getProductosFiltros = async (
       whereConditions.idProducto = idProducto;
     }
     if (nombre) {
-      whereConditions.nombre = nombre;
+      whereConditions.nombre = {[Op.iLike]: `%${nombre}%`};
     }
     if (tipo) {
       whereConditions.tipo = tipo;

@@ -6,7 +6,7 @@ import ProductoTablas from '@/componentes/Tablas/ProductoTablas';
 const Page = () => {
   return (
     <AdminPage>
-      <div className="space-y-2">
+      <div className="space-y-2 mx-auto">
         <FiltroProductos />
         <div>
           <ProductoTablas />

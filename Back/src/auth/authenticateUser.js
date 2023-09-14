@@ -1,12 +1,17 @@
 const {Usuarios, Pedidos, Ventas} = require('../DB.js');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const {Op} = require('sequelize');
 const {SECRETA} = process.env;
 
 const authenticateUser = async (email, password) => {
   try {
     const user = await Usuarios.findOne({
-      where: {email: email},
+      where: {
+        email: {
+          [Op.iLike]: email,
+        },
+      },
       include: [
         {model: Pedidos, as: 'pedido'},
         {
@@ -15,10 +20,15 @@ const authenticateUser = async (email, password) => {
         },
       ],
     });
+
+    if (!user) {
+      throw new Error('Email o Contraseña incorrectos');
+    }
+
     const passwordValid = await bcryptjs.compare(password, user.password);
 
-    if (!user || !passwordValid) {
-      throw new Error('Usuario o email incorrectos');
+    if (!passwordValid) {
+      throw new Error('Email o Contraseña incorrectos');
     }
 
     const payload = {

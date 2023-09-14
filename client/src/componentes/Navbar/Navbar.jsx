@@ -21,7 +21,7 @@ const Navbar = () => {
     if (token) authUsuario(token, dispatch);
   }, []);
   return (
-    <nav className="bg-zinc-900 opacity-75 flex justify-between px-16 py-4 items-center">
+    <nav className="bg-zinc-900 opacity-75 flex justify-between px-16 py-4 items-center relative z-50">
       <Link href="/">
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1693416033/appDayMar/app/Para_navbar_gcbjwy.png"

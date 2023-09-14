@@ -17,9 +17,9 @@ const handlerAuthenticate = async (req, res) => {
   try {
     const {email, password} = req.body;
     const token = await authenticateUser(email, password);
-    res.status(200).json(token);
+    return res.status(200).json(token);
   } catch (error) {
-    res.status(401).json({error: error.message});
+    return res.status(401).json({error: error.message});
   }
 };
 

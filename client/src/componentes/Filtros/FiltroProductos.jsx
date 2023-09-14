@@ -340,7 +340,7 @@ const FiltroProductos = () => {
   ]);
 
   return (
-    <div className="flex bg-black opacity-75 rounded p-2 relative z-50">
+    <div className="flex bg-black opacity-75 rounded p-2 relative z-10">
       <div>
         <button
           id="dropdownDelayButton"

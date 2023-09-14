@@ -6,6 +6,7 @@ import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import {useDispatch} from 'react-redux';
 import * as Yup from 'yup';
+import Swal from 'sweetalert2';
 
 const page = () => {
   const router = useRouter();
@@ -25,10 +26,30 @@ const page = () => {
     },
     validationSchema,
     onSubmit: async (values) => {
-      const {token, id, email, rol} = await login(
-        values.email,
-        values.password
-      );
+      const data = await login(values.email, values.password);
+
+      if (data.error) {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: data.error,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        formik.setValues({
+          email: '',
+          password: '',
+        });
+        return;
+      }
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Login exitoso',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+      const {token, id, email, rol} = data;
       localStorage.setItem('token', token);
       const usuario = {
         token,
