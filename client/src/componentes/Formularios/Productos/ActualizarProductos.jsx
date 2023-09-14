@@ -138,7 +138,7 @@ const ActualizarProductos = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder="Nombre del Producto"
-                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
                 />
                 {formik.touched.nombre && formik.errors.nombre ? (
                   <div className="text-red-900 font-bold">
@@ -156,7 +156,7 @@ const ActualizarProductos = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder="tipo"
-                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
                 />
                 {formik.touched.tipo && formik.errors.tipo ? (
                   <div className="text-red-900 font-bold">
@@ -174,7 +174,7 @@ const ActualizarProductos = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder="Descripcion"
-                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
                 />
                 {formik.touched.descripcion && formik.errors.descripcion ? (
                   <div className="text-red-900 font-bold">
@@ -194,7 +194,7 @@ const ActualizarProductos = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder="Precio de Compra"
-                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
                 />
                 {formik.touched.precioCompra && formik.errors.precioCompra ? (
                   <div className="text-red-900 font-bold">
@@ -212,7 +212,7 @@ const ActualizarProductos = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder="Precio de Venta"
-                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
                 />
                 {formik.touched.precioVenta && formik.errors.precioVenta ? (
                   <div className="text-red-900 font-bold">
@@ -230,7 +230,7 @@ const ActualizarProductos = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder="stock"
-                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                  className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
                 />
                 {formik.touched.stock && formik.errors.stock ? (
                   <div className="text-red-900 font-bold">
@@ -248,7 +248,7 @@ const ActualizarProductos = () => {
                     data-dropdown-toggle="dropdownCategoria"
                     data-dropdown-delay="500"
                     data-dropdown-trigger="hover"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800"
                     type="button"
                     onClick={toggleCategoria}
                   >
@@ -315,7 +315,7 @@ const ActualizarProductos = () => {
           </div>
           <button
             onSubmit={formik.handleSubmit}
-            className="bg-blue-500 m-2 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+            className="bg-lime-500 m-2 text-white py-2 px-4 rounded hover:bg-lime-600 focus:outline-none focus:bg-lime-600"
           >
             Actualizar Producto
           </button>

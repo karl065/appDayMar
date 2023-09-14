@@ -94,7 +94,7 @@ const CloudinaryWidget = ({imagen, setImagen}) => {
         <button
           type="button"
           onClick={handleOpenWidget}
-          className="bg-blue-500 m-2 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          className="bg-lime-500 m-2 text-white py-2 px-4 rounded hover:bg-lime-600 focus:outline-none focus:bg-lime-600"
         >
           Agregar Imágenes
         </button>

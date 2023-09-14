@@ -1,14 +1,24 @@
 import {useDispatch, useSelector} from 'react-redux';
-import {useMemo, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import {usePagination, useTable} from 'react-table';
 import putProductos from '@/redux/Services/productos/putProductos';
 import Link from 'next/link';
 import SinResultados from '../SinResultados/SinResultados';
+import Spinner from '../Spinner/Spinner';
 
 const ProductoTablas = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.valores.productos);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
   const processedData = useMemo(() => {
     return data.map((producto) => ({
       ...producto,
@@ -88,7 +98,7 @@ const ProductoTablas = () => {
                 className={`${
                   value == 'No disponible'
                     ? 'text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800'
-                    : 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                    : 'text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800'
                 }`}
                 type="button"
                 onClick={toggleStatus}
@@ -144,7 +154,10 @@ const ProductoTablas = () => {
         Header: '',
         accessor: 'edit',
         Cell: ({cell: {value}, row: {original}}) => (
-          <Link href={`/Admin/ActualizarProducto?id=${original.idProducto}`}>
+          <Link
+            href={`/Admin/ActualizarProducto?id=${original.idProducto}`}
+            title="Editar"
+          >
             ✏
           </Link>
         ),
@@ -181,7 +194,11 @@ const ProductoTablas = () => {
 
   return (
     <div className="mx-auto">
-      {data.length > 0 ? (
+      {isLoading ? (
+        <div className="flex flex-col bg-black opacity-75 p-2 rounded justify-center items-center shadow-lg space-y-2">
+          <Spinner />
+        </div>
+      ) : data.length > 0 ? (
         <div className="flex flex-col bg-black opacity-75 p-8 rounded shadow-lg space-y-2 items-center">
           <table className="text-center" {...getTableProps()}>
             <thead className="border-b font-medium dark:border-neutral-500">

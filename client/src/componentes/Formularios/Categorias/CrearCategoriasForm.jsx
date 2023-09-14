@@ -59,7 +59,7 @@ const CrearCategoriasForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Nombre de la Categoria"
-              className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
             />
             {formik.touched.nombreCategoria && formik.errors.nombreCategoria ? (
               <div className="text-red-900 font-bold">
@@ -76,7 +76,7 @@ const CrearCategoriasForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Descripcion"
-              className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
             />
             {formik.touched.descripcion && formik.errors.descripcion ? (
               <div className="text-red-900 font-bold">
@@ -84,7 +84,7 @@ const CrearCategoriasForm = () => {
               </div>
             ) : null}
           </div>
-          <button className="bg-blue-500 m-2 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+          <button className="bg-lime-500 m-2 text-white py-2 px-4 rounded hover:bg-lime-600 focus:outline-none focus:bg-lime-600">
             Registrar Categoria
           </button>
         </form>

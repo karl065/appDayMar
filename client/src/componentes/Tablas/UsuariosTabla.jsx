@@ -1,12 +1,19 @@
-import {useMemo} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import {usePagination, useTable} from 'react-table';
 import {useSelector} from 'react-redux';
 import Link from 'next/link';
 import SinResultados from '../SinResultados/SinResultados';
+import Spinner from '../Spinner/Spinner';
 
 const UsuariosTabla = () => {
   const data = useSelector((state) => state.valores.usuarios);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
   const columns = useMemo(
     () => [
       {
@@ -38,7 +45,10 @@ const UsuariosTabla = () => {
         Header: '',
         accessor: 'edit',
         Cell: ({cell: {value}, row: {original}}) => (
-          <Link href={`/Admin/ActualizarUsuarios?id=${original.idUser}`}>
+          <Link
+            href={`/Admin/ActualizarUsuarios?id=${original.idUser}`}
+            title="Editar"
+          >
             ✏
           </Link>
         ),
@@ -70,7 +80,11 @@ const UsuariosTabla = () => {
   } = table;
   return (
     <div>
-      {data.length > 0 ? (
+      {isLoading ? (
+        <div className="flex flex-col bg-black opacity-75 p-2 rounded justify-center items-center shadow-lg space-y-2">
+          <Spinner />
+        </div>
+      ) : data.length > 0 ? (
         <div className="flex flex-col bg-black opacity-75 p-2 rounded shadow-lg space-y-2">
           <table className="min-w-full text-center" {...getTableProps()}>
             <thead className="border-b font-medium dark:border-neutral-500">
@@ -162,7 +176,7 @@ const UsuariosTabla = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="flex flex-col bg-black opacity-75 p-2 rounded justify-center items-center shadow-lg space-y-2">
           <SinResultados />
         </div>
       )}

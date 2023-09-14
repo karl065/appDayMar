@@ -121,7 +121,8 @@ const SearchBar = () => {
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1693410322/appDayMar/app/search_p8qit4.png"
           alt="Lupa búsqueda"
-          className="w-8 h-8 border-white"
+          style={{filter: 'invert(100%)', color: 'green'}}
+          className="w-8 h-8"
         />
       </button>
     </div>

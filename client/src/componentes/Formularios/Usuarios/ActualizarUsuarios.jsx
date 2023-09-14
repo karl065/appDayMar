@@ -107,7 +107,7 @@ const ActualizarUsuario = () => {
               name="idUser"
               id="idUser"
               value={formik.values.idUser}
-              className="w-full border text-white rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              className="w-full border text-white rounded px-3 py-2 focus:outline-none focus:border-lime-500"
             >
               {formik.values.idUser}
             </label>
@@ -121,7 +121,7 @@ const ActualizarUsuario = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 placeholder="Nombre"
-                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
               />
               {formik.touched.nombre && formik.errors.nombre ? (
                 <div className="text-red-900 font-bold">
@@ -138,7 +138,7 @@ const ActualizarUsuario = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 placeholder="Direccion"
-                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
               />
               {formik.touched.direccion && formik.errors.direccion ? (
                 <div className="text-red-900 font-bold">
@@ -155,7 +155,7 @@ const ActualizarUsuario = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 placeholder="Celular"
-                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
               />
               {formik.touched.celular && formik.errors.celular ? (
                 <div className="text-red-900 font-bold">
@@ -174,7 +174,7 @@ const ActualizarUsuario = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 placeholder="Email"
-                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
               />
               {formik.touched.email && formik.errors.email ? (
                 <div className="text-red-900 font-bold">
@@ -191,7 +191,7 @@ const ActualizarUsuario = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 placeholder="Contraseña"
-                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
               />
               {formik.touched.password && formik.errors.password ? (
                 <div className="text-red-900 font-bold">
@@ -208,7 +208,7 @@ const ActualizarUsuario = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 placeholder="Confirma la contraseña"
-                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                className="w-full border text-black rounded px-3 py-2 focus:outline-none focus:border-lime-500"
               />
               {formik.touched.passwordConfirmation &&
               formik.errors.passwordConfirmation ? (
@@ -225,7 +225,7 @@ const ActualizarUsuario = () => {
                 data-dropdown-toggle="dropdownDelay"
                 data-dropdown-delay="500"
                 data-dropdown-trigger="hover"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800"
                 type="button"
                 onClick={toggleRol}
               >
@@ -276,7 +276,7 @@ const ActualizarUsuario = () => {
               )}
             </div>
             <button
-              className="bg-blue-500 m-2 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+              className="bg-lime-500 m-2 text-white font-bold py-2 px-4 rounded hover:bg-lime-600 focus:outline-none focus:bg-lime-600"
               disabled={!formik.isValid || formik.isSubmitting}
             >
               Actualizar

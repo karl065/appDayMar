@@ -16,7 +16,8 @@ const Sidebar = () => {
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1694651316/appDayMar/app/group_FILL0_wght400_GRAD0_opsz48_secwfi.png"
           alt="verUsuarios"
-          style={{filter: 'invert(100%)'}} // Cambia el color de la imagen a blanco
+          style={{filter: 'invert(100%)'}}
+          className="w-10 h-10"
         />
       </Link>
       <Link
@@ -31,7 +32,8 @@ const Sidebar = () => {
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1694651316/appDayMar/app/person_add_FILL0_wght400_GRAD0_opsz48_ftzxwv.png"
           alt="crearUsuarios"
-          style={{filter: 'invert(100%)'}} // Cambia el color de la imagen a blanco
+          className="w-10 h-10"
+          style={{filter: 'invert(100%)'}}
         />
       </Link>
       <Link
@@ -46,7 +48,8 @@ const Sidebar = () => {
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1694651316/appDayMar/app/assignment_ind_FILL0_wght400_GRAD0_opsz48_iglpgo.png"
           alt="actualizarUsuarios"
-          style={{filter: 'invert(100%)'}} // Cambia el color de la imagen a blanco
+          className="w-10 h-10"
+          style={{filter: 'invert(100%)'}}
         />
       </Link>
       <hr />
@@ -62,7 +65,8 @@ const Sidebar = () => {
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1694654373/appDayMar/app/yard_FILL0_wght400_GRAD0_opsz48_nrrckr.png"
           alt="CrearCategorias"
-          style={{filter: 'invert(100%)'}} // Cambia el color de la imagen a blanco
+          style={{filter: 'invert(100%)'}}
+          className="w-10 h-10"
         />
       </Link>
       <Link
@@ -77,7 +81,8 @@ const Sidebar = () => {
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1694654372/appDayMar/app/potted_plant_FILL0_wght400_GRAD0_opsz48_f002xj.png"
           alt="CrearProductos"
-          style={{filter: 'invert(100%)'}} // Cambia el color de la imagen a blanco
+          style={{filter: 'invert(100%)'}}
+          className="w-10 h-10"
         />
       </Link>
       <Link
@@ -90,7 +95,8 @@ const Sidebar = () => {
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1694654372/appDayMar/app/forest_FILL0_wght400_GRAD0_opsz48_zr3bfw.png"
           alt="Productos"
-          style={{filter: 'invert(100%)'}} // Cambia el color de la imagen a blanco
+          style={{filter: 'invert(100%)'}}
+          className="w-10 h-10"
         />
       </Link>
       <Link
@@ -105,7 +111,8 @@ const Sidebar = () => {
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1694654372/appDayMar/app/compost_FILL0_wght400_GRAD0_opsz48_gcjrlf.png"
           alt="ActualizarProductos"
-          style={{filter: 'invert(100%)'}} // Cambia el color de la imagen a blanco
+          style={{filter: 'invert(100%)'}}
+          className="w-10 h-10"
         />
       </Link>
     </div>
