@@ -21,7 +21,7 @@ const Navbar = () => {
     if (token) authUsuario(token, dispatch);
   }, []);
   return (
-    <nav className="bg-zinc-900 opacity-75 flex justify-between px-16 py-4 items-center relative z-50">
+    <nav className="md:px-16 bg-zinc-900 opacity-75 flex justify-between px-16 py-4 items-center relative z-50 w-full">
       <Link href="/">
         <img
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1693416033/appDayMar/app/Para_navbar_gcbjwy.png"
@@ -29,9 +29,9 @@ const Navbar = () => {
           className="w-30 h-10"
         />
       </Link>
-      <h1>{usuarioLogin.email}</h1>
+      <h1 className="md:ml-auto">{usuarioLogin.email}</h1>
       <SearchBar />
-      <ul className="flex gap-4 uppercase">
+      <ul className="flex gap-4 md:gap-8 uppercase">
         <li>
           <Link href="/">inicio</Link>
         </li>
