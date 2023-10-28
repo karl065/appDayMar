@@ -22,6 +22,7 @@ export default function RootLayout({children}) {
           type="image/png"
           href="https://res.cloudinary.com/dpjeltekx/image/upload/v1693416340/appDayMar/app/icono_arlsok.png"
         />
+        <title>DayMar</title>
       </head>
       <Providers>
         <body>
