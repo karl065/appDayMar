@@ -83,11 +83,11 @@ const SearchBar = () => {
 
   return (
     <div className="flex justify-between items-center relative z-50">
-      <div className="inline-block relative mr-2">
+      <div className="inline-block relative mr-2 text-xs md:text-sm lg:text-base">
         <input
           type="text"
           placeholder="Buscar"
-          className="bg-auto rounded-md w-auto text-black font-bold"
+          className="bg-auto rounded-md w-30 md:w-48 lg:w-64 text-black font-bold"
           value={search}
           onChange={handleChange}
         />
@@ -122,7 +122,7 @@ const SearchBar = () => {
           src="https://res.cloudinary.com/dpjeltekx/image/upload/v1693410322/appDayMar/app/search_p8qit4.png"
           alt="Lupa búsqueda"
           style={{filter: 'invert(100%)', color: 'green'}}
-          className="w-8 h-8"
+          className="w-5 h-5 md:w-8 md:h-8"
         />
       </button>
     </div>

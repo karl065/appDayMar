@@ -21,17 +21,10 @@ const Navbar = () => {
     if (token) authUsuario(token, dispatch);
   }, []);
   return (
-    <nav className="md:px-16 bg-zinc-900 opacity-75 flex justify-between px-16 py-4 items-center relative z-50 w-full">
-      <Link href="/">
-        <img
-          src="https://res.cloudinary.com/dpjeltekx/image/upload/v1693416033/appDayMar/app/Para_navbar_gcbjwy.png"
-          alt="Logo"
-          className="w-30 h-10"
-        />
-      </Link>
-      <h1 className="md:ml-auto">{usuarioLogin.email}</h1>
+    <nav className=" bg-zinc-900 opacity-75 flex justify-between px-4 py-4 items-center ">
+      <h1 className="text-xs md:text-sm lg:text-base">{usuarioLogin.email}</h1>
       <SearchBar />
-      <ul className="flex gap-4 md:gap-8 uppercase">
+      <ul className="flex gap-2 text-xs md:text-sm lg:text-base uppercase">
         <li>
           <Link href="/">inicio</Link>
         </li>
