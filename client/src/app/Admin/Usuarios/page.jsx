@@ -6,7 +6,7 @@ import AdminPage from '../page';
 const page = () => {
   return (
     <AdminPage>
-      <div className="inline-block mx-auto">
+      <div className="inline-block mx-auto w-full">
         <UsuariosTabla />
       </div>
     </AdminPage>

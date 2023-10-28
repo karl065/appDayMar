@@ -7,7 +7,9 @@ const AdminPage = ({children}) => {
   return (
     <div className="flex justify-between">
       <Sidebar />
-      <div className="flex flex-grow m-2 relative">{path && children}</div>
+      <div className="flex flex-grow m-2 relative w-full">
+        {path && children}
+      </div>
     </div>
   );
 };
