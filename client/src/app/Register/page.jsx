@@ -1,5 +1,5 @@
 'use client';
-import Register from '@/componentes/Formularios/Usuarios/register';
+import Register from '@/componentes/Formularios/Usuarios/Register';
 
 const page = () => {
   return (
