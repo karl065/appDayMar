@@ -87,7 +87,7 @@ const SearchBar = () => {
         <input
           type="text"
           placeholder="Buscar"
-          className="bg-auto rounded-md w-30 md:w-48 lg:w-64 text-black font-bold"
+          className="bg-auto rounded-md w-20 md:w-48 lg:w-64 text-black font-bold"
           value={search}
           onChange={handleChange}
         />

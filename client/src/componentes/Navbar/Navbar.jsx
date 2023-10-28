@@ -21,10 +21,10 @@ const Navbar = () => {
     if (token) authUsuario(token, dispatch);
   }, []);
   return (
-    <nav className=" bg-zinc-900 opacity-75 flex justify-between px-4 py-4 items-center ">
-      <h1 className="text-xs md:text-sm lg:text-base">{usuarioLogin.email}</h1>
+    <nav className=" bg-zinc-900 opacity-75 flex justify-between px-4 py-4 items-center text-xs md:text-sm lg:text-base">
+      <h1>{usuarioLogin.email}</h1>
       <SearchBar />
-      <ul className="flex gap-2 text-xs md:text-sm lg:text-base uppercase">
+      <ul className="flex gap-2  uppercase">
         <li>
           <Link href="/">inicio</Link>
         </li>
