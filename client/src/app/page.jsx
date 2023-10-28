@@ -26,7 +26,7 @@ const HomePage = () => {
     getUsuarios(dispatch);
   }, []);
   return (
-    <div className="flex flex-col space-y-2 p-2">
+    <div className="flex flex-col space-y-2 p-2 w-full">
       <FiltroProductos />
       <div className="flex flex-wrap">
         {isLoading ? (
@@ -34,9 +34,9 @@ const HomePage = () => {
             <Spinner />
           </div>
         ) : productos.length > 0 ? (
-          <div className="flex justify-center space-x-2  h-full w-full">
+          <div className="flex flex-wrap justify-center space-x-2 w-full">
             {productos.map((producto, index) => (
-              <Card key={index} producto={producto} />
+              <Card key={index} producto={producto} className="flex-grow" />
             ))}
           </div>
         ) : (
