@@ -8,11 +8,6 @@ import store from '@/redux/store';
 import {getProductos} from '@/redux/Services/productos/getProductos';
 import getCategorias from '@/redux/Services/categorias/getCategorias';
 
-export const metadata = {
-  title: 'DayMar',
-  description: 'Carlos Castellanos',
-};
-
 export default function RootLayout({children}) {
   useEffect(() => {
     getUsuarios(store.dispatch);
