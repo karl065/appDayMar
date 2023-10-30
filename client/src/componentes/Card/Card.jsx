@@ -1,4 +1,5 @@
 const Card = ({producto}) => {
+  const precioFormateado = producto.precioVenta.toLocaleString('es-CO');
   const imagenFondo = {
     backgroundImage: `url(${producto.imagen[0].split(',')[0]})`,
     backgroundSize: '200px 200px',
@@ -23,8 +24,8 @@ const Card = ({producto}) => {
         <h1>{producto.nombre}</h1>
       </div>
       <div className="flex space-x-1">
-        <label>Precio:</label>
-        <h2>{producto.precioVenta}</h2>
+        <label>Precio: </label>
+        <h2> ${precioFormateado}</h2>
       </div>
     </div>
   );
