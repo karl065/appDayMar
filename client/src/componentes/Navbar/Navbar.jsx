@@ -29,7 +29,7 @@ const Navbar = () => {
     if (token) authUsuario(token, dispatch);
   }, []);
   return (
-    <nav className=" bg-zinc-900 opacity-75 flex justify-between px-4 py-4 items-center relative z-50 text-xs md:text-sm lg:text-base">
+    <nav className="bg-zinc-900 opacity-75 flex justify-between px-4 py-4 items-center relative z-50 text-xs md:text-sm lg:text-lg">
       <h1 className="hidden sm:flex">{usuarioLogin.email}</h1>
       <SearchBar />
       <ul className="gap-2 uppercase hidden md:flex lg:flex">
