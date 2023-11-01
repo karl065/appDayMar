@@ -31,22 +31,22 @@ const Navbar = () => {
     if (token) authUsuario(token, dispatch);
   }, []);
   return (
-    <nav className="bg-zinc-900 opacity-75 flex justify-between px-4 py-4 items-center relative z-50 text-xs md:text-sm lg:text-lg">
+    <nav className="relative z-50 flex items-center justify-between px-4 py-4 text-xs opacity-75 bg-zinc-900 md:text-sm lg:text-lg">
       {usuarioLogin.rol === 'SuperUser' || usuarioLogin.rol === 'Admin' ? (
         <>
-          <li className="hidden sm:flex uppercase">
+          <li className="hidden uppercase sm:flex">
             <Link href="/Admin">{usuarioLogin.email}</Link>
           </li>
         </>
       ) : (
         <>
-          <li className="hidden sm:flex uppercase">
+          <li className="hidden uppercase sm:flex">
             <Link href="/PerfilUsuario">{usuarioLogin.email}</Link>
           </li>
         </>
       )}
       <SearchBar />
-      <ul className="gap-2 uppercase hidden md:flex lg:flex">
+      <ul className="hidden gap-2 uppercase md:flex lg:flex">
         <li>
           <Link href="/">inicio</Link>
         </li>
@@ -62,7 +62,7 @@ const Navbar = () => {
             ) : (
               <>
                 <li>
-                  <Link href="/Perfilusuario">Mi Perfil</Link>
+                  <Link href="/PerfilUsuario">Mi Perfil</Link>
                 </li>
               </>
             )}
