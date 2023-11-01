@@ -33,7 +33,6 @@ const HomePage = () => {
 
   const nextProduct = () => {
     const nextPosition = posicion + 1;
-    console.log(nextPosition);
     if (nextPosition < productos.length) {
       setSelectedProduct(productos[nextPosition]);
       setPosicion(nextPosition);
@@ -41,8 +40,6 @@ const HomePage = () => {
   };
   const afterProduct = () => {
     const nextPosition = posicion - 1;
-    console.log(posicion);
-    console.log(nextPosition);
     if (nextPosition >= 0) {
       setSelectedProduct(productos[nextPosition]);
       setPosicion(nextPosition);

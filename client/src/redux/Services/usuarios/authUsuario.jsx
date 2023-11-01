@@ -13,7 +13,8 @@ const authUsuario = async (token, dispatch) => {
       data.token = token;
       dispatch(userLogin(data));
     } catch (error) {
-      console.log(error);
+      const {data} = error.response;
+      if (data.error === 'Sesion vencida') localStorage.removeItem('token');
     }
   }
 };
