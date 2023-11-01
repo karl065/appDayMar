@@ -8,7 +8,7 @@ const UserPage = ({children}) => {
   return (
     <div className="flex justify-between">
       <SidebarCliente />
-      <div className="flex flex-grow m-2 relative w-full">
+      <div className="relative flex flex-grow w-full m-2">
         {path && children}
       </div>
     </div>
