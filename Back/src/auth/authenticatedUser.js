@@ -12,7 +12,7 @@ const authenticatedUser = async (idUser) => {
       ],
     });
 
-    if (!user) throw new Error('User not found');
+    if (!user) throw new Error('Sesion vencida');
 
     return user;
   } catch (error) {

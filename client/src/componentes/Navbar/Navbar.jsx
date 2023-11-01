@@ -4,9 +4,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import {userLogin} from '@/redux/Slices/slice';
 import {useEffect, useRef, useState} from 'react';
 import authUsuario from '@/redux/Services/usuarios/authUsuario';
+import {usePathname} from 'next/navigation';
 
 const Navbar = () => {
   const usuarioLogin = useSelector((state) => state.valores.login);
+  const path = usePathname();
 
   const dispatch = useDispatch();
 
@@ -30,7 +32,19 @@ const Navbar = () => {
   }, []);
   return (
     <nav className="bg-zinc-900 opacity-75 flex justify-between px-4 py-4 items-center relative z-50 text-xs md:text-sm lg:text-lg">
-      <h1 className="hidden sm:flex">{usuarioLogin.email}</h1>
+      {usuarioLogin.rol === 'SuperUser' || usuarioLogin.rol === 'Admin' ? (
+        <>
+          <li className="hidden sm:flex uppercase">
+            <Link href="/Admin">{usuarioLogin.email}</Link>
+          </li>
+        </>
+      ) : (
+        <>
+          <li className="hidden sm:flex uppercase">
+            <Link href="/PerfilUsuario">{usuarioLogin.email}</Link>
+          </li>
+        </>
+      )}
       <SearchBar />
       <ul className="gap-2 uppercase hidden md:flex lg:flex">
         <li>
@@ -45,7 +59,13 @@ const Navbar = () => {
                   <Link href="/Admin">Panel Administrativo</Link>
                 </li>
               </>
-            ) : null}
+            ) : (
+              <>
+                <li>
+                  <Link href="/Perfilusuario">Mi Perfil</Link>
+                </li>
+              </>
+            )}
             <li>
               <Link href="/" onClick={handleLogout}>
                 salir
@@ -54,12 +74,16 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <li>
-              <Link href="/Login">iniciar sesión</Link>
-            </li>
-            <li>
-              <Link href="/Register">Registrarse</Link>
-            </li>
+            {(path === '/Login' || path === '/') && (
+              <li>
+                <Link href="/Register">Registrarse</Link>
+              </li>
+            )}
+            {(path === '/Register' || path === '/') && (
+              <li>
+                <Link href="/Login">Iniciar sesión</Link>
+              </li>
+            )}
           </>
         )}
         <li>

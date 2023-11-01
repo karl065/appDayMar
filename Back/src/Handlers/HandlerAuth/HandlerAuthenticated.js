@@ -1,4 +1,4 @@
-const { authenticatedUser } = require("../../auth/authenticatedUser");
+const {authenticatedUser} = require('../../auth/authenticatedUser');
 
 /**
  * La función `handlerAuthenticated` es una función asíncrona que maneja las solicitudes para recuperar
@@ -16,12 +16,12 @@ const { authenticatedUser } = require("../../auth/authenticatedUser");
  */
 const handlerAuthenticated = async (req, res) => {
   try {
-    const { id } = req.user;
+    const {id} = req.user;
     const user = await authenticatedUser(id);
     return res.status(200).json(user);
   } catch (error) {
-    return res.status(404).json({ error: error.message });
+    return res.status(401).json({error: error.message});
   }
 };
 
-module.exports = { handlerAuthenticated };
+module.exports = {handlerAuthenticated};

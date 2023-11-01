@@ -262,14 +262,14 @@ const Register = () => {
             >
               {path === '/Admin/CrearUsuarios' ? 'Registrar' : 'Registrarse'}
             </button>
-            {path !== '/Admin/CrearUsuarios' && (
+            {/* {path !== '/Admin/CrearUsuarios' && (
               <div className="bg-lime-500 m-2 text-white py-2 px-4 rounded hover:bg-lime-600 focus:outline-none focus:bg-lime-600">
                 <Link href="/Login">Iniciar sesión</Link>
               </div>
-            )}
+            )} */}
           </div>
         </form>
-        {path !== '/Admin/CrearUsuarios' && (
+        {/* {path !== '/Admin/CrearUsuarios' && (
           <div>
             <div className="my-4 border-b border-gray-300 flex items-center space-x-4">
               <div className="flex-1 border-t border-gray-300"></div>
@@ -317,7 +317,7 @@ const Register = () => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
